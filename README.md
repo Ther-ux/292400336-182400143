@@ -121,6 +121,7 @@
 各文件用途：
 
 - `index.html`：项目入口，包含首页、发布、详情和“我的发布”等页面结构。
+- `favicon.svg`：浏览器标签页图标，属于项目自带的 SVG 素材。
 - `css/styles.css`：页面视觉样式和响应式布局。
 - `js/store.js`：数据模型、发布校验、搜索筛选、排序、状态更新与本地存储。
 - `js/app.js`：页面渲染、事件绑定和用户交互。
@@ -128,7 +129,12 @@
 - `docs/PSP.md`：PSP 2.1 预估与实际耗时记录。
 - `docs/TEST_REPORT.md`：单元测试工具、白盒测试思路、测试用例和实际验收说明。
 - `docs/BLOG_DRAFT.md`：博客正文整理稿。
-- `screenshots/`：项目运行截图和核心流程图。
+- `docs/SUBMISSION_CHECKLIST.md`：提交前需要核对的材料。
+- `screenshots/`：首页、发布页和“我的发布”截图，以及 SVG 核心流程图。
+- `双击打开网页.bat`：Windows 下的便捷启动脚本。
+- `run-tests.bat`：Windows 下运行本地单元测试的脚本。
+
+项目使用原生 HTML、CSS 和 JavaScript，没有第三方前端框架或在线素材依赖。
 
 ## 六、运行方法
 
@@ -138,7 +144,8 @@
 2. 进入 `校园失物招领-结对编程作业` 文件夹。
 3. 找到 `index.html`。
 4. 右键 → “打开方式” → **Google Chrome**。
-5. 页面打开后即可直接使用。
+5. 页面打开后，可在“信息广场”搜索“校园卡”并组合筛选；点击信息卡片查看详情和联系方式。
+6. 点击“发布信息”填写一条寻物或招领信息，再到“我的发布”查看并更新状态。
 
 项目使用原生 HTML、CSS、JavaScript，不依赖服务器和在线 CDN，因此即使离线也能运行。
 
@@ -293,7 +300,7 @@ docs: 完善 README 和测试说明
 
 另一位成员应通过 Fork + Pull Request 提交至少一次真实阶段性改动，最终博客中保留 commit 记录和 Pull Request 截图。
 
-本次界面改进已通过 [Pull Request #1](https://github.com/endlessmaybe/292400336-182400143/pull/1) 提交，等待原仓库维护者审查。
+本次界面改进的 [Pull Request #1](https://github.com/endlessmaybe/292400336-182400143/pull/1) 已合并到主仓库。
 
 单元测试可只在本地运行，不必上传仓库；若选择省略 `tests/` 和 `run-tests.bat`，博客仍需展示测试设计与实际运行结果。当前仓库已包含早期上传的测试文件，本次界面改动没有修改它们。
 

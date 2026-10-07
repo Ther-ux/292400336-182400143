@@ -111,7 +111,46 @@ function updateStatus(items, id, actorId = OWNER_ID) {
 
 ## 六、目录说明与使用说明
 
-完整目录结构和运行方法见项目根目录 `README.md`。测试人员只需完整下载项目，用 Google Chrome 打开 `index.html`；无需服务器、数据库或第三方依赖。
+仓库中的网页项目位于 `校园失物招领-结对编程作业/`。目录按页面结构、样式、交互逻辑、测试和说明材料分开：
+
+```text
+292400336-182400143/
+├─ README.md                         # 仓库首页的目录与使用说明
+└─ 校园失物招领-结对编程作业/
+   ├─ index.html                     # 网页入口与各页面模板
+   ├─ favicon.svg                    # 浏览器标签页图标
+   ├─ css/
+   │  └─ styles.css                 # 页面样式与移动端适配
+   ├─ js/
+   │  ├─ store.js                   # 数据、搜索筛选、状态更新与本地存储
+   │  └─ app.js                     # 页面渲染、路由与按钮交互
+   ├─ screenshots/                  # 页面截图与核心流程图
+   │  ├─ 01-home.png
+   │  ├─ 02-publish.png
+   │  ├─ 03-mine.png
+   │  └─ 04-core-flow.svg
+   ├─ docs/
+   │  ├─ PSP.md                     # PSP 耗时记录
+   │  ├─ TEST_REPORT.md             # 测试报告
+   │  ├─ BLOG_DRAFT.md              # 博客草稿
+   │  └─ SUBMISSION_CHECKLIST.md    # 提交清单
+   ├─ tests/
+   │  └─ store.test.js              # 本地单元测试
+   ├─ run-tests.bat                  # Windows 测试脚本
+   └─ 双击打开网页.bat               # Windows 启动脚本
+```
+
+`favicon.svg` 与 `screenshots/` 中的素材随项目提供。网页使用原生 HTML、CSS 和 JavaScript，没有第三方前端框架、后端服务或在线 CDN。
+
+测试人员使用步骤：
+
+1. 从 [GitHub 主仓库](https://github.com/endlessmaybe/292400336-182400143) 下载 ZIP 并完整解压，进入 `校园失物招领-结对编程作业` 文件夹。
+2. 用 Google Chrome 打开 `index.html`；Windows 也可双击 `双击打开网页.bat`。网页无需安装依赖或启动服务器。
+3. 首页默认显示 6 条演示信息。可搜索“校园卡”、选择寻物/招领及类别、地点、状态筛选，再点“查看详情”查看联系方式。
+4. 点击“发布信息”填写新信息；发布后到“我的发布”查看，并在找回或归还后更新状态。发布内容保存在当前浏览器的 `localStorage` 中。
+5. 如需复核自动化测试，在项目目录运行 `node --test tests\store.test.js`（需要 Node.js 18+）；测试代码不属于网页运行依赖。
+
+仓库根目录的 `README.md` 另有完整文件用途和验收顺序，可供测试时对照。
 
 ## 七、单元测试
 
@@ -136,6 +175,8 @@ function updateStatus(items, id, actorId = OWNER_ID) {
 Fork 仓库：https://github.com/Ther-ux/292400336-182400143
 
 Pull Request：https://github.com/endlessmaybe/292400336-182400143/pull/1
+
+该 Pull Request 已合并到主仓库。
 
 单元测试可只在本地运行，不必上传 GitHub；上文保留测试设计与实际结果。这里展示双方真实的 commit 记录和 Pull Request 截图，不预写尚未发生的提交。
 
