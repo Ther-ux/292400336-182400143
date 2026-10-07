@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e3a8a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="420" rx="30" fill="url(#bg)"/>
+  <text x="64" y="62" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#0f172a">校园失物招领核心流程</text>
+  <text x="64" y="94" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#64748b">发布 → 浏览 / 搜索 → 详情联系 → 发布者更新状态 → 全站同步最新结果</text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="150" width="190" height="150" rx="22" fill="url(#card)"/>
+    <text x="155" y="194" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#dbeafe">STEP 01</text>
+    <text x="155" y="232" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="white">发布信息</text>
+    <text x="155" y="264" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#eff6ff">寻物 / 招领</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="310" y="150" width="190" height="150" rx="22" fill="white" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="405" y="194" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#2563eb">STEP 02</text>
+    <text x="405" y="232" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#0f172a">浏览 / 搜索</text>
+    <text x="405" y="264" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#64748b">关键词 + 组合筛选</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="560" y="150" width="190" height="150" rx="22" fill="white" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="655" y="194" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#2563eb">STEP 03</text>
+    <text x="655" y="232" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#0f172a">详情联系</text>
+    <text x="655" y="264" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#64748b">查看并复制联系方式</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="810" y="150" width="190" height="150" rx="22" fill="white" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="905" y="194" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#2563eb">STEP 04</text>
+    <text x="905" y="232" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#0f172a">更新状态</text>
+    <text x="905" y="264" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#64748b">已找到 / 已归还</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1060" y="150" width="160" height="150" rx="22" fill="#0f172a"/>
+    <text x="1140" y="194" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#93c5fd">RESULT</text>
+    <text x="1140" y="232" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="700" fill="white">同步结果</text>
+    <text x="1140" y="264" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#cbd5e1">减少无效联系</text>
+  </g>
+
+  <path d="M260 225 H296" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M510 225 H546" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M760 225 H796" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1010 225 H1046" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="340" width="1160" height="42" rx="14" fill="#dbeafe"/>
+  <text x="640" y="367" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#1e3a8a">状态写回 localStorage 后，首页、详情页和“我的发布”都会读取同一份最新数据</text>
+</svg>

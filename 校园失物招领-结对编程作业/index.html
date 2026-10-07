@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="校园失物招领——发布、搜索、查看详情、联系发布者并更新物品状态。">
+  <title>拾光 · 校园失物招领</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true">拾</span>
+      <span><strong>拾光</strong><small>校园失物招领</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#home" data-nav="home">信息广场</a>
+      <a href="#publish" data-nav="publish">发布信息</a>
+      <a href="#mine" data-nav="mine">我的发布</a>
+    </nav>
+    <button class="primary-btn compact" id="headerPublishBtn" type="button">+ 发布信息</button>
+  </header>
+
+  <main id="app" class="app-shell" aria-live="polite"></main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <template id="homeTemplate">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">CAMPUS LOST &amp; FOUND</span>
+        <h1>让每一件遗失物品<br><span>更快回到主人身边。</span></h1>
+        <p>把分散在群聊里的寻物与招领信息集中起来。发布、搜索、查看详情、联系发布者，再由发布者及时更新状态。</p>
+        <div class="hero-actions">
+          <button class="primary-btn" type="button" data-action="hero-publish">发布寻物 / 招领</button>
+          <button class="ghost-btn" type="button" data-action="scroll-list">浏览最新信息</button>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="今日概览">
+        <div class="hero-orbit" aria-hidden="true"><span>?</span></div>
+        <div class="stat-grid" id="heroStats"></div>
+      </div>
+    </section>
+
+    <section class="toolbar-card" id="listingSection">
+      <div class="search-row">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="搜索物品名称、描述或地点，例如：校园卡" autocomplete="off">
+        </label>
+        <button class="primary-btn" id="searchBtn" type="button">搜索</button>
+      </div>
+      <div class="filter-row">
+        <div class="segmented" aria-label="信息类型">
+          <button type="button" data-filter-type="all" class="active">全部</button>
+          <button type="button" data-filter-type="lost">寻物</button>
+          <button type="button" data-filter-type="found">招领</button>
+        </div>
+        <select id="categoryFilter" aria-label="按类别筛选"></select>
+        <select id="locationFilter" aria-label="按地点筛选"></select>
+        <select id="statusFilter" aria-label="按状态筛选">
+          <option value="all">全部状态</option>
+          <option value="active">进行中</option>
+          <option value="resolved">已解决</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="list-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">LATEST POSTS</span><h2>校园最新信息</h2></div>
+        <p id="resultCount"></p>
+      </div>
+      <div id="itemGrid" class="item-grid"></div>
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="empty-icon">⌕</div>
+        <h3>没有找到匹配的信息</h3>
+        <p>可以换一个关键词，或减少筛选条件后再试。</p>
+        <button class="ghost-btn" type="button" data-action="reset-filter">清空筛选</button>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="section-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>四步完成一次失物信息流转</h2></div></div>
+      <div class="steps">
+        <article><span>01</span><h3>发布</h3><p>选择寻物或招领，补全物品、时间、地点和联系方式。</p></article>
+        <article><span>02</span><h3>搜索</h3><p>按关键词、物品类别和地点筛选，快速定位相关信息。</p></article>
+        <article><span>03</span><h3>联系</h3><p>详情页查看联系方式，可一键复制后与发布者核实。</p></article>
+        <article><span>04</span><h3>更新</h3><p>找回或归还后，发布者在“我的发布”中更新状态。</p></article>
+      </div>
+    </section>
+  </template>
+
+  <template id="publishTemplate">
+    <section class="page-intro">
+      <span class="eyebrow">PUBLISH</span>
+      <h1>发布一条失物招领信息</h1>
+      <p>信息越准确，越容易被正确的人找到。带 * 的项目必须填写。</p>
+    </section>
+    <section class="form-layout">
+      <form id="publishForm" class="form-card" novalidate>
+        <fieldset>
+          <legend>1. 信息类型</legend>
+          <div class="type-choice">
+            <label><input type="radio" name="type" value="lost" checked><span><b>我丢了东西</b><small>发布寻物信息</small></span></label>
+            <label><input type="radio" name="type" value="found"><span><b>我捡到东西</b><small>发布招领信息</small></span></label>
+          </div>
+        </fieldset>
+        <div class="form-grid">
+          <label><span>物品名称 *</span><input name="title" maxlength="30" placeholder="例如：蓝色校园卡" required></label>
+          <label><span>物品类别 *</span><select name="category" required></select></label>
+          <label><span>遗失 / 拾取地点 *</span><select name="location" required></select></label>
+          <label><span>遗失 / 拾取日期 *</span><input name="date" type="date" required></label>
+          <label class="wide"><span>物品描述 *</span><textarea name="description" rows="5" maxlength="240" placeholder="颜色、品牌、外观特征、卡套样式等，避免填写过度敏感信息。" required></textarea><small class="counter"><span id="descCount">0</span>/240</small></label>
+          <label><span>联系人 *</span><input name="contactName" maxlength="20" placeholder="例如：小吴" required></label>
+          <label><span>联系方式 *</span><input name="contact" maxlength="40" placeholder="手机号 / QQ / 微信号" required></label>
+        </div>
+        <div id="formError" class="form-error" hidden></div>
+        <div class="form-actions">
+          <button class="ghost-btn" type="button" id="cancelPublish">取消</button>
+          <button class="primary-btn" type="submit">确认发布</button>
+        </div>
+      </form>
+      <aside class="form-tips">
+        <div class="tip-illustration" aria-hidden="true">✦</div>
+        <h3>发布前小提示</h3>
+        <p>描述有辨识度的特征，但不要公开校园卡号、身份证号等完整敏感信息。</p>
+        <p>联系方式请确保真实可用。物品解决后，记得及时更新状态，减少重复询问。</p>
+        <div class="mini-note"><strong>状态说明</strong><br>寻物信息解决后标记“已找到”；招领信息解决后标记“已归还”。</div>
+      </aside>
+    </section>
+  </template>
+
+  <template id="mineTemplate">
+    <section class="page-intro inline-intro">
+      <div><span class="eyebrow">MY POSTS</span><h1>我的发布</h1><p>集中维护你发布的信息，找回或归还后请及时更新状态。</p></div>
+      <button class="primary-btn" type="button" data-action="mine-publish">+ 新建发布</button>
+    </section>
+    <section id="mineStats" class="mine-stats"></section>
+    <section id="mineList" class="mine-list"></section>
+    <div id="mineEmpty" class="empty-state" hidden><div class="empty-icon">＋</div><h3>你还没有发布过信息</h3><p>发布第一条寻物或招领信息后，会在这里统一管理。</p></div>
+  </template>
+
+  <template id="detailTemplate">
+    <section class="detail-page" id="detailPage"></section>
+  </template>
+
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
