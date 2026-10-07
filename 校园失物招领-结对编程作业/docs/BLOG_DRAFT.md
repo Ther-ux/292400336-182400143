@@ -135,7 +135,7 @@ function updateStatus(items, id, actorId = OWNER_ID) {
 
 Fork 仓库：https://github.com/Ther-ux/292400336-182400143
 
-Pull Request：【发起后填写真实链接】
+Pull Request：https://github.com/endlessmaybe/292400336-182400143/pull/1
 
 单元测试可只在本地运行，不必上传 GitHub；上文保留测试设计与实际结果。这里展示双方真实的 commit 记录和 Pull Request 截图，不预写尚未发生的提交。
 

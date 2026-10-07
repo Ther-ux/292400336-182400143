@@ -293,6 +293,8 @@ docs: 完善 README 和测试说明
 
 另一位成员应通过 Fork + Pull Request 提交至少一次真实阶段性改动，最终博客中保留 commit 记录和 Pull Request 截图。
 
+本次界面改进已通过 [Pull Request #1](https://github.com/endlessmaybe/292400336-182400143/pull/1) 提交，等待原仓库维护者审查。
+
 单元测试可只在本地运行，不必上传仓库；若选择省略 `tests/` 和 `run-tests.bat`，博客仍需展示测试设计与实际运行结果。当前仓库已包含早期上传的测试文件，本次界面改动没有修改它们。
 
 ---

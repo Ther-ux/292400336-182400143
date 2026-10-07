@@ -6,7 +6,7 @@
 
 - 两位同学姓名、学号、博客链接。
 - 本次作业博客发布后的链接。
-- 主仓库地址：[292400336-182400143](https://github.com/endlessmaybe/292400336-182400143)；Fork 地址：[Ther-ux/292400336-182400143](https://github.com/Ther-ux/292400336-182400143)；PR 链接待创建后补充。
+- 主仓库地址：[292400336-182400143](https://github.com/endlessmaybe/292400336-182400143)；Fork 地址：[Ther-ux/292400336-182400143](https://github.com/Ther-ux/292400336-182400143)；界面改进 PR：[#1](https://github.com/endlessmaybe/292400336-182400143/pull/1)。
 - 两人的真实分工，不要直接照抄 `BLOG_DRAFT.md` 中的分工建议。
 - 两人各自真实的队友评价与收获。
 - GitHub commit 记录截图。

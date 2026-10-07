@@ -107,4 +107,4 @@ node --test tests\store.test.js
 3. 每当一项工作有可检查的进展，第二位同学从自己的分支向原仓库发起 Pull Request；第一位同学查看修改后合并。
 4. 在作业博客中填写原仓库与 Pull Request 链接，并展示双方真实的 commit 和 PR 记录。
 
-Fork 仓库已创建：[Ther-ux/292400336-182400143](https://github.com/Ther-ux/292400336-182400143)。Pull Request 链接在实际创建后填写。
+Fork 仓库已创建：[Ther-ux/292400336-182400143](https://github.com/Ther-ux/292400336-182400143)。本次界面改进已提交 [Pull Request #1](https://github.com/endlessmaybe/292400336-182400143/pull/1)，等待原仓库维护者审查。
