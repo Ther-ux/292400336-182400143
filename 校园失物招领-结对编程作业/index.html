@@ -32,16 +32,23 @@
   <template id="homeTemplate">
     <section class="hero">
       <div class="hero-copy">
-        <span class="eyebrow">CAMPUS LOST &amp; FOUND</span>
-        <h1>让每一件遗失物品<br><span>更快回到主人身边。</span></h1>
-        <p>把分散在群聊里的寻物与招领信息集中起来。发布、搜索、查看详情、联系发布者，再由发布者及时更新状态。</p>
+        <span class="eyebrow">CAMPUS LOST &amp; FOUND <span class="eyebrow-line" aria-hidden="true"></span> 校园失物招领</span>
+        <h1>丢了东西？<br><span>让相遇有迹可循。</span></h1>
+        <p>一处发布，一起寻找。让校园里的每一次发现，都有机会成为一场及时的重逢。</p>
         <div class="hero-actions">
-          <button class="primary-btn" type="button" data-action="hero-publish">发布寻物 / 招领</button>
-          <button class="ghost-btn" type="button" data-action="scroll-list">浏览最新信息</button>
+          <button class="primary-btn" type="button" data-action="hero-publish">发布寻物 / 招领 <span aria-hidden="true">↗</span></button>
+          <button class="ghost-btn" type="button" data-action="scroll-list">看看大家在找什么 <span aria-hidden="true">↓</span></button>
         </div>
+        <div class="hero-footnote"><span class="footnote-dot" aria-hidden="true"></span> 帮每一件物品，找到回家的路</div>
       </div>
-      <div class="hero-panel" aria-label="今日概览">
-        <div class="hero-orbit" aria-hidden="true"><span>?</span></div>
+      <div class="hero-panel" aria-label="广场概览">
+        <div class="hero-panel-top"><span>拾光 · 校园寻物站</span><span aria-hidden="true">✳</span></div>
+        <div class="hero-illustration" aria-hidden="true">
+          <div class="illustration-ring"></div>
+          <div class="floating-card floating-card-back"><small>LOST / 寻物</small><strong>校园卡</strong><span>在教学楼丢失</span><i>▣</i></div>
+          <div class="floating-card floating-card-front"><small>FOUND / 招领</small><strong>一把雨伞</strong><span>在图书馆拾到</span><i>☂</i></div>
+          <div class="illustration-spark spark-one">✦</div><div class="illustration-spark spark-two">✳</div>
+        </div>
         <div class="stat-grid" id="heroStats"></div>
       </div>
     </section>
@@ -67,6 +74,7 @@
           <option value="active">进行中</option>
           <option value="resolved">已解决</option>
         </select>
+        <button class="clear-filters" id="clearFilters" type="button" hidden>清空筛选 ×</button>
       </div>
     </section>
 

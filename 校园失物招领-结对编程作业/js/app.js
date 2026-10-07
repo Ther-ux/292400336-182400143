@@ -64,17 +64,31 @@
     $('#categoryFilter', app).value = filters.category;
     $('#locationFilter', app).value = filters.location;
     $('#statusFilter', app).value = filters.status;
-    $$('[data-filter-type]', app).forEach((b) => b.classList.toggle('active', b.dataset.filterType === filters.type));
+    syncTypeButtons();
     renderGrid();
 
     $('#searchBtn', app).addEventListener('click', () => { filters.keyword = $('#searchInput', app).value.trim(); renderGrid(); });
     $('#searchInput', app).addEventListener('keydown', (e) => { if (e.key === 'Enter') { filters.keyword = e.target.value.trim(); renderGrid(); } });
-    $$('[data-filter-type]', app).forEach((btn) => btn.addEventListener('click', () => { filters.type = btn.dataset.filterType; $$('[data-filter-type]',app).forEach((b) => b.classList.toggle('active', b===btn)); renderGrid(); }));
+    $$('[data-filter-type]', app).forEach((btn) => btn.addEventListener('click', () => { filters.type = btn.dataset.filterType; syncTypeButtons(); renderGrid(); }));
     $('#categoryFilter', app).addEventListener('change', (e) => { filters.category = e.target.value; renderGrid(); });
     $('#locationFilter', app).addEventListener('change', (e) => { filters.location = e.target.value; renderGrid(); });
     $('#statusFilter', app).addEventListener('change', (e) => { filters.status = e.target.value; renderGrid(); });
+    $('#clearFilters', app).addEventListener('click', resetFilters);
     $('[data-action="hero-publish"]', app).addEventListener('click', () => navigate('#publish'));
     $('[data-action="scroll-list"]', app).addEventListener('click', () => $('#listingSection', app).scrollIntoView({behavior:'smooth'}));
+  }
+
+  function syncTypeButtons() {
+    $$('[data-filter-type]', app).forEach((button) => {
+      const selected = button.dataset.filterType === filters.type;
+      button.classList.toggle('active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+  }
+
+  function resetFilters() {
+    filters = { keyword:'', type:'all', category:'all', location:'all', status:'all' };
+    renderHome();
   }
 
   function renderGrid() {
@@ -83,9 +97,10 @@
     grid.innerHTML = result.map(itemCard).join('');
     grid.hidden = result.length === 0; empty.hidden = result.length !== 0;
     $('#resultCount', app).textContent = `共 ${result.length} 条匹配信息`;
+    $('#clearFilters', app).hidden = !filters.keyword && ['type','category','location','status'].every((key) => filters[key] === 'all');
     $$('[data-detail]', grid).forEach((btn) => btn.addEventListener('click', () => navigate(`#detail/${encodeURIComponent(btn.dataset.detail)}`)));
     const reset = $('[data-action="reset-filter"]', app);
-    if (reset) reset.addEventListener('click', () => { filters = { keyword:'', type:'all', category:'all', location:'all', status:'all' }; renderHome(); });
+    if (reset) reset.addEventListener('click', resetFilters);
   }
 
   function renderPublish() {
