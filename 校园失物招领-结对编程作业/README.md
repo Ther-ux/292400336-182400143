@@ -65,6 +65,8 @@ node --test tests\store.test.js
 
 测试覆盖发布数据校验、关键词搜索、组合筛选、状态更新、发布者权限、排序等关键逻辑。详细测试说明见 `docs/TEST_REPORT.md`。
 
+单元测试可以只在本地运行，不必上传到 GitHub。若提交时省略 `tests/` 和 `run-tests.bat`，博客中仍应展示测试设计与实际运行结果；仓库中的网页直接打开 `index.html` 即可使用。
+
 ## 五、数据说明
 
 首次打开时会自动展示 6 条演示数据，便于助教直接检查搜索、筛选、详情和状态展示。用户自行发布的信息会保存在浏览器本机的 `localStorage` 中，不会上传到网络。
@@ -97,3 +99,12 @@ node --test tests\store.test.js
 ## 八、浏览器说明
 
 开发与测试统一使用 Google Chrome。项目只使用原生 HTML、CSS、JavaScript 和浏览器标准 API，不依赖在线 CDN，因此离线打开也能展示预期结果。
+
+## 九、GitHub 结对协作
+
+1. 第一位同学使用已创建的 [`292400336-182400143`](https://github.com/endlessmaybe/292400336-182400143) 仓库上传网页项目。
+2. 第二位同学 fork 该仓库，在自己的 fork 中提交实际修改。
+3. 每当一项工作有可检查的进展，第二位同学从自己的分支向原仓库发起 Pull Request；第一位同学查看修改后合并。
+4. 在作业博客中填写原仓库与 Pull Request 链接，并展示双方真实的 commit 和 PR 记录。
+
+Fork 仓库已创建：[Ther-ux/292400336-182400143](https://github.com/Ther-ux/292400336-182400143)。Pull Request 链接在实际创建后填写。

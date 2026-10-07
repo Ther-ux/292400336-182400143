@@ -1,13 +1,13 @@
 # 结对编程作业：校园失物招领 Web 实现
 
-> 提交前请补充：结对同学博客链接、本作业博客链接、两位同学姓名与学号、最终 GitHub 仓库地址、GitHub commit / PR 截图。本地代码确认无误后再创建题目要求的“第一个学号-第二个学号”仓库。
+> 提交前请补充：结对同学博客链接、本作业博客链接、两位同学姓名、GitHub commit / PR 截图。主仓库已创建，地址见下文。
 
 ## 一、作业信息与分工
 
 - 结对成员 A：【姓名 / 学号 / 博客链接，提交前填写】
 - 结对成员 B：【姓名 / 学号 / 博客链接，提交前填写】
 - 本作业博客：【发布后填写】
-- GitHub 项目：【后续创建仓库后填写】
+- GitHub 项目：https://github.com/endlessmaybe/292400336-182400143
 
 分工建议：A 负责需求梳理、页面结构与搜索筛选；B 负责发布、详情、状态维护与测试；两人共同进行代码复审、Chrome 走查和博客整理。最终按你们真实分工修改，不能照抄建议。
 
@@ -129,17 +129,15 @@ function updateStatus(items, id, actorId = OWNER_ID) {
 
 ## 八、GitHub 代码签入记录
 
-本轮暂时不上传 GitHub。准备提交时按功能拆分 commit，例如：
+第一位同学【姓名，学号 292400336】创建 `292400336-182400143` 仓库并上传网页项目；第二位同学【姓名，学号 182400143】fork 原仓库，在自己的分支中完成实际修改。有可检查的进展时，第二位同学向原仓库发起 Pull Request，由第一位同学审查并合并。
 
-1. `feat: build lost and found listing and search`
-2. `feat: add publish and detail flow`
-3. `feat: add my posts and status update`
-4. `test: add lost and found unit tests`
-5. `docs: add readme psp and assignment report`
+原仓库：https://github.com/endlessmaybe/292400336-182400143
 
-队友 fork 后在有实际进展时创建 Pull Request，避免一次性把所有代码压成一个不合理的 commit。
+Fork 仓库：https://github.com/Ther-ux/292400336-182400143
 
-【这里放 GitHub commit 和 Pull Request 截图】
+Pull Request：【发起后填写真实链接】
+
+单元测试可只在本地运行，不必上传 GitHub；上文保留测试设计与实际结果。这里展示双方真实的 commit 记录和 Pull Request 截图，不预写尚未发生的提交。
 
 ## 九、遇到的问题与解决方法
 
